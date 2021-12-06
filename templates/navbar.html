@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <a class="navbar-brand" href="">WebsiteAuthentication</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+           
+          </ul>          
+      <ul class="navbar-nav mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+              {% comment %} <li class="nav-item">
+                <a class="nav-link" href="">Welcome, {{request.user.username}}</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'update_password' %}">ChangePassword</a>
+              </li> {% endcomment %}
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+                          
+            {% endif %}
+          </ul> 
+           
+      </div>         
+    </div>        
+  </nav>

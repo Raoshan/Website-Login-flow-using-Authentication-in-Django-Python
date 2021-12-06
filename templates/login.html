@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">Login</h3>
+		<div class="card-text">
+			{% if messages %}
+			{% for message in messages  %}
+			 <div class="alert alert-info">
+				{{message}}				
+			 </div>		
+			{% endfor %}
+		{% endif %}
+
+			<form action="" method='post'>
+				{% csrf_token %}
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1">Username</label>
+					<input type="text" name='username' class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+							
+					<input type="password" name='password' class="form-control form-control-sm" id="exampleInputPassword1">
+				</div>
+				<button type="submit" class="btn btn-outline-primary">Login</button>
+				<a href="{% url 'forget-password'%}" class="text-danger" style="float:right;font-size:12px;">Forget Password ?</a>
+				
+				<div class="sign-up">
+					Don't have an account? <a href="{% url 'register' %}">Create One</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container-fluid">
+    <div class"row">
+        <div class="col-sm-4">
+         <h2>User Profile</h2>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link"><h4>Username: {{request.user.username}}</h4></a>
+                <a class="nav-link"><h6>UserId: {{request.user.id}}</h6></a>                
+                <a class="nav-link"><h6>EmailId: {{request.user.email}}</h6></a>                
+                
+              </li> 
+              <li class="nav-item">
+                <a class="btn btn-warning" href="{% url 'update_password' %}">Update Password</a>
+              </li>
+                                    
+            {% endif %}
+          </ul>      
+                        
+     
+        </div>
+        <div class="col-sm-8">
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
